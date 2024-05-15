@@ -4,8 +4,8 @@
   "description": "A simple 11-11 puzzle game",
   "main": "src/index.js",
   "scripts": {
-    "start": "webpack serve --mode development --open",
-    "build": "webpack --mode production"
+    "start": "webpack serve --config webpack.config.js --mode development --open",
+    "build": "webpack --config webpack.config.js --mode production"
   },
   "dependencies": {
     "react": "^17.0.2",
