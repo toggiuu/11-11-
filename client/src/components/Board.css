@@ -1,0 +1,25 @@
+.board {
+  display: grid;
+  grid-template-columns: repeat(11, 40px);
+  grid-template-rows: repeat(11, 40px);
+  gap: 2px;
+  justify-content: center;
+  margin: 20px auto;
+  position: relative;
+}
+
+.row {
+  display: flex;
+}
+
+.cell {
+  width: 40px;
+  height: 40px;
+  background-color: #ddd;
+  border: 1px solid #999;
+  cursor: pointer;
+}
+
+.cell.filled {
+  background-color: #f00;
+}
