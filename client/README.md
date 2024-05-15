@@ -10,7 +10,7 @@ A simple 11-11 puzzle game built with React.
    
 2. Navigate to the project directory
    ```bash
-   cd 11-11-game/client
+   cd 11-11--main/client
 
 3. Install dependencies
    ```bash
