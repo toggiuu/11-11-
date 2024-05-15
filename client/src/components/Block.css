@@ -1,0 +1,18 @@
+.block {
+  display: inline-block;
+  margin: 10px;
+}
+
+.block-row {
+  display: flex;
+}
+
+.block-cell {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #999;
+}
+
+.block-cell.filled {
+  background-color: red;
+}
