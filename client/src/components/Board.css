@@ -1,21 +1,20 @@
-.block {
-  display: inline-block;
-  margin: 10px;
-  padding: 5px;
-  background-color: #f0f0f0;
-  border: 1px solid #ccc;
+.board {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px auto;
+  background-color: #fff;
+  padding: 10px;
+  border: 2px solid #ddd;
+  width: fit-content;
 }
 
-.block-row {
+.board-row {
   display: flex;
 }
 
-.block-cell {
+.board-cell {
   width: 20px;
   height: 20px;
-  border: 1px solid #ccc;
-}
-
-.block-cell.filled {
-  background-color: #007bff;
+  border: 1px solid #ddd;
 }
