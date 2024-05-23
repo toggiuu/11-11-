@@ -1,31 +1,53 @@
 body {
-  margin: 0;
-  font-family: Arial, sans-serif;
   background-image: url('/assets/images/background.jpg');
   background-size: cover;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
 }
 
 .app {
   text-align: center;
-  padding: 20px;
+  padding-top: 50px;
 }
 
 .board {
   display: grid;
   grid-template-columns: repeat(11, 40px);
-  grid-gap: 2px;
+  grid-template-rows: repeat(11, 40px);
+  gap: 1px;
   justify-content: center;
   margin: 20px auto;
 }
 
-.block {
+.grid-cell {
   width: 40px;
   height: 40px;
-  background-color: #ddd;
+  border: 1px solid #000;
+}
+
+.block-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.block {
+  display: inline-block;
+  margin: 10px;
+}
+
+.block-row {
+  display: flex;
+}
+
+.block-cell {
+  width: 40px;
+  height: 40px;
   border: 1px solid #999;
 }
 
-.score {
-  font-size: 24px;
-  margin-bottom: 20px;
+.block-cell.filled {
+  background-color: red;
 }
