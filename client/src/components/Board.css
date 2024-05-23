@@ -1,25 +1,21 @@
-.board {
-  display: grid;
-  grid-template-columns: repeat(11, 40px);
-  grid-template-rows: repeat(11, 40px);
-  gap: 2px;
-  justify-content: center;
-  margin: 20px auto;
-  position: relative;
+.block {
+  display: inline-block;
+  margin: 10px;
+  padding: 5px;
+  background-color: #f0f0f0;
+  border: 1px solid #ccc;
 }
 
-.row {
+.block-row {
   display: flex;
 }
 
-.cell {
-  width: 40px;
-  height: 40px;
-  background-color: #ddd;
-  border: 1px solid #999;
-  cursor: pointer;
+.block-cell {
+  width: 20px;
+  height: 20px;
+  border: 1px solid #ccc;
 }
 
-.cell.filled {
-  background-color: #f00;
+.block-cell.filled {
+  background-color: #007bff;
 }
