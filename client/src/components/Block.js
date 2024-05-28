@@ -1,14 +1,14 @@
 import React from 'react';
 import { useDrag } from 'react-dnd';
 
-const Block = ({ shape, index }) => {
-    const [{ isDragging }, drag] = useDrag(() => ({
+const Block = ({ shape, index, rotateShape }) => {
+    const [{ isDragging }, drag] = useDrag({
         type: 'block',
         item: { shape, index },
         collect: (monitor) => ({
             isDragging: monitor.isDragging(),
         }),
-    }));
+    });
 
     const renderShape = () => {
         return shape.map((row, rowIndex) => (
@@ -21,7 +21,16 @@ const Block = ({ shape, index }) => {
     };
 
     return (
-        <div ref={drag} style={{ opacity: isDragging ? 0.5 : 1, margin: '0 10px' }}>
+        <div
+            ref={drag}
+            style={{
+                opacity: isDragging ? 0.5 : 1,
+                margin: '0 10px',
+                cursor: 'move',
+                display: 'inline-block',
+                userSelect: 'none',
+            }}
+        >
             {renderShape()}
         </div>
     );
