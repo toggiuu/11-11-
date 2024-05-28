@@ -1,21 +1,21 @@
 import React, { useState, useRef } from 'react';
 import { useDrop } from 'react-dnd';
-import '../styles/styles.css';
+import './Board.css';
 
-const Board = ({ onUseBlock }) => {
+const Board = ({ onUseBlock, updateScore }) => {
     const [grid, setGrid] = useState(Array.from({ length: 11 }, () => Array(11).fill(null)));
     const boardRef = useRef(null);
 
     const [{ isOver }, drop] = useDrop({
         accept: 'block',
         drop: (item, monitor) => {
-            const offset = monitor.getSourceClientOffset(); // 블록의 좌측 상단을 기준으로 계산
+            const offset = monitor.getSourceClientOffset();
             const boardRect = boardRef.current.getBoundingClientRect();
             const boardX = boardRect.left + window.pageXOffset;
             const boardY = boardRect.top + window.pageYOffset;
             const cellSize = 40;
 
-            const x = Math.floor((offset.x - boardX) / cellSize)-18;
+            const x = Math.floor((offset.x - boardX) / cellSize);
             const y = Math.floor((offset.y - boardY) / cellSize);
 
             console.log('Offset:', offset);
@@ -48,9 +48,12 @@ const Board = ({ onUseBlock }) => {
                     });
                 });
 
+                let linesCleared = 0;
+
                 for (let i = 0; i < 11; i++) {
                     if (newGrid[i].every(cell => cell !== null)) {
                         newGrid[i] = Array(11).fill(null);
+                        linesCleared++;
                     }
                 }
 
@@ -58,11 +61,13 @@ const Board = ({ onUseBlock }) => {
                     const column = newGrid.map(row => row[i]);
                     if (column.every(cell => cell !== null)) {
                         newGrid.forEach(row => row[i] = null);
+                        linesCleared++;
                     }
                 }
 
                 setGrid(newGrid);
                 onUseBlock(item.index);
+                updateScore(linesCleared);
             }
         },
         collect: (monitor) => ({
